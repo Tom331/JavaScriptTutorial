@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <script src="jstut.js"></script>
+        <title>Derek Banas JS Tutorial</title>
+
+        <style type="text/css">
+         body {font-size: 1.6em;}
+         .hidden {display:none}
+         .show {display:inline !important;}
+         button {
+            border: 2px solid black; background: #E5E4E2;
+            font-size: .5em; font-weight: bold; color: black;
+            padding: .8em 2em;
+            margin-top: .4em
+         }
+    </style>
+
+    </head>
+    <body>
+        <h1 id="sayHello"></h1>
+
+        <script>
+            var yourName = prompt("What is your name?");
+
+            if (yourName != "") {
+                document.getElementById("sayHello").innerHTML = "Hello " + //innerHTML puts 'it' inside the html tags
+                yourName;
+            } else {
+                alert("Please enter a name next time")
+            }
+        </script>
+
+
+
+        <script>
+     document.write("5+4 = ", 5+4, "<br>"); //the comma treats statement following as math, and + concatenates
+     </script>
+
+     <script>
+         document.write("Random # (1-10): ", Math.floor((Math.random() *10) + 1), "<br>");
+     </script>
+
+    <script>
+        document.write("Converted String: ", Number("3.14"), "<br>");
+    </script> <br><br>
+
+    <script>
+        var randStr = "A long " + "string that " + "goes on and on";
+        document.write(randStr + "<br>");
+        document.write("String Length ", randStr.length + "<br>");
+        document.write("Index for \"goes\" : ", randStr.indexOf("goes"), "<br>");
+        document.write(randStr.slice(19, 23) + "<br>");
+        document.write(randStr.slice(19) + "<br>");
+        document.write(randStr.substr(19, 4) + "<br>");
+        document.write(randStr.replace("and on", "forever") + "<br>");
+        document.write("At Index 2: ", randStr.charAt(2) + "<br>");
+
+        var randStrArray = randStr.split(" ");
+        randStr = randStr.trim()//doesn't work
+        document.write(randStr);
+    </script>
+        <br><br>
+
+    <script>
+        var age = 20;
+
+        if ((age >= 5) && (age <= 6)) {
+            document.write("go to kindergarten");
+        }else if(age > 18){
+            document.write("go to college");
+        }
+    </script><br>
+
+    <script>
+        //Switch statements are for when you have a limited number of options
+        var age = 10;
+        switch (age) {
+            case 6:
+                document.write("Go to Kindergarten" + "<br>");
+                break;
+
+            case 7:
+                document.write("Go to first grade");
+                break;
+
+            default:
+                document.write("Grade: ", age - 5 + "<br>");
+                
+
+                //Can I vote condition test:
+                var canIVote = (age >= 18) ? true : false;
+                document.write("I am old enough to vote: " + canIVote);
+        }
+        
+    </script><br><br>
+
+    <script>
+        //WHILE LOOPS
+        var i = 1;
+        while (i <= 10) {
+            document.write(i + ",");
+            i++;
+        }
+
+        //must go through at least once:
+
+        do {
+            var guess = prompt("Guess a number between 1 and 10");
+        } while (guess != 7)
+
+        alert("7 was correct!");
+    </script><br><br>
+
+    <script>
+        var customer = { name: "Bob Thomas", address: "123 Main", balance: 50.50 };
+        for (k in customer) {
+            document.write(customer[k] + "<br>");
+        }
+    </script><br><br>
+
+    <script>
+        var tomSmith = ["Tom Smith", "123 Main", 120.50];
+        document.write("1st Index: ", tomSmith[0], "<br>");
+
+        tomSmith[3] = "tSmith@hotmail.com";
+
+        document.write("toString for tomSmith[]: ", tomSmith.toString(), "<br>");
+    </script><br><br>
+
+    <script>
+        //SORTING A NUM ARRAY:
+        var numbers = [4, 8, 19, 23, 1, 3, 2];
+
+        var ascending = numbers.sort(function (x1, y1) { return x1 - y1 });
+        document.write(ascending + "<br>");
+
+        var descending = numbers.sort(function (y2, x2) { return x2 - y2 });
+        document.write(descending + "<br>");
+    </script><br><br>
+
+    <script>
+        //FUNCTIONS
+        function inArray(arrayToCheck, value) {
+            for (i = 0; i < arrayToCheck.length; i++) {
+                if (arrayToCheck[i] === value) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        var randArray = [1, 2, 3, 4, 5];
+
+        document.write("In Array : ", inArray(randArray, 5) + "<br>");
+
+
+        function factorial(num) {
+            if (num <= 1) {
+                return 1;
+            }
+            else {
+                return num * factorial(num - 1);
+            }
+        }
+
+        document.write("Factorial of 4: ", factorial(4), "<br><br>");
+    </script>
+
+      
+    <script>
+        //EVENT HANDLING
+        function openAlert(mess){
+            alert(mess)
+        }
+    </script>
+    <a href="JavaScript:void(0)" onclick="alert('Hello')">Say Hello </a> <br>
+
+    <a href="JavaScript:void(0)"
+    onmouseover ="this.style.color='red';"
+    onmouseout="this.style.color='blue';">
+    Make me Red</a> <br>
+
+    <input type="text" id="randInput"
+    onChange="var dataEntered=document.getElementById('randInput').value;
+    alert('User Typed: ' + dataEntered)">
+
+    <form action="#" id="samForm">
+        <input id="charInput" type="text">
+        <p id="keyData">Key Data Here</p>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+
+        <img src="https://scontent.xx.fbcdn.net/v/t1.0-9/13076748_10153920084495218_4809175059670427333_n.jpg?oh=d030ad3d17608df823650c5ac7244885&oe=58DD3E34" 
+        id="logo" height="60px" width="60px">
+        
+        <button id="logoButton">Get Logo</button>
+
+        <input id="mouseInput" type="text" size="30"> <br>
+
+        Mouse X: <input type="text" id="mouseX"><br>
+        Mouse Y: <input type="text" id="mouseY"><br>
+
+        <button id="clearInputs">Clear Inputs</button>
+
+        <script>
+            function getChar(event) {   //will return key or mouse button that was clicked
+                if (event.which == null) {
+                    return String.fromCharCode(event.keyCode);
+                } else if (event.which != 0 && event.charCode != 0) {
+                    return String.fromCharCode(event.which);
+                } else {
+                    return null;
+                }
+            }
+
+            document.getElementById('charInput').onkeypress =
+            function (event) {
+                var char = getChar(event || window.event)
+                if (!char) return false;
+
+                document.getElementById('keyData').innerHTML = char + " was clicked";
+                return true;
+            }
+
+            document.getElementById('charInput').onfocus = function (event) {
+                document.getElementById('keyData').innerHTML = "Input Gained Focus";
+            }
+
+            document.getElementById('charInput').onfocus = function (event) {
+                document.getElementById('keyData').innerHTML = "Input Gained Focus";
+            }
+
+            document.getElementById('logoButton').onclick = function (event) {
+                document.getElementById('logo').className = "show";
+            }
+
+            document.getElementById('logo').onclick = function (event) {
+                document.getElementById('logo').className = "hidden";
+            }
+
+
+            //mice
+
+            document.body.onmousemove = function (e) {
+                e = e || window.event;
+
+                var pageX = e.pageX;
+                var pageY = e.pageY;
+
+                if (pageX === undefined) {
+                    pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                    pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+                }
+
+                document.getElementById('mouseX').value = pageX;
+                document.getElementById('mouseY').value = pageY;
+            };
+
+            document.getElementById('clearInputs').onclick = function (event) {
+                var inputElements = document.getElementsByTagName('input');
+
+                for (var i = 0; i < inputElements.length; i++) {
+                    if (inputElements[i].type == "text") {
+                        inputElements[i].value = "";
+                    }
+                }
+            }
+
+        </script>
+
+    </form><br><br>
+
+    <script>
+        var cust1 = {
+            name: "John Smith",
+            street: "123 Main",
+            city: "Pittsburgh",
+            state: "PA",
+            email: "jsmith@aol.com",
+            balance: 120.50,
+            payDownBal: function (amtPaid) {
+                this.balance -= amtPaid;
+            },
+            addToBal: function () {
+                this.balance += amtCharged;
+            }
+        };
+
+        document.write("Customer Name : ", cust1.name, "<br>")
+
+        cust1.street = "215 Main";
+
+        document.write("Customer Street : ", cust1.street, "<br>");
+
+        cust1.country = "US";
+
+        document.write("Customer Country : ", cust1.country, "<br>");
+
+        delete cust1.country;
+
+        for (var prop in cust1) {
+            if (cust1.hasOwnProperty(prop)) {
+                document.write(prop, "<br>");
+            }
+        }
+
+        document.write("name in cust1: ", "name" in cust1, "<br>");
+
+        function getInfo(cust) {
+            return cust1.name + " lives at " + cust1.street + " in "
+            + cust1.city + " " + cust1.state;
+        }
+
+        document.write(getInfo(cust1), "<br>");
+    </script> <br> <br>
+
+
+    <script>
+        //OBJECT CONSTRUCTOR
+        function Customer(name, street, city, state, email, balance) {
+            this.name = name;
+            this.street = street;
+            this.city = city;
+            this.state = state;
+            this.email = email;
+            this.balance = balance;
+            this.payDownBal = function (amtPaid) {
+                this.balance -= amtPaid;
+            };
+            this.addToBal = function (amtCharged) {
+                this.balance += amtCharged;
+            };
+        }
+
+
+        var cust2 = new Customer("Sally Smith", "234 Main", "Pittsburgh", "PA", "ssmith@aol.com", 0.00);
+
+        cust2.addToBal(15.50);
+
+        //'static' variable for our object, a variable with value that is shared between every single object created for the 'customer' type
+
+        Customer.prototype.isCreditAvail = true;
+
+        Customer.prototype.toString = function () {
+            return this.name + " lives at " + this.street + " in " + this.city + " " + this.state + "email: " + this.email +
+            " and has a balance of $" + this.balance.toFixed(2) + " Creditworthy : " + this.isCreditAvail;
+        };
+
+        document.write(cust2.toString());
+
+
+    </script>
+
+    
+
+    </body>
+</html>
